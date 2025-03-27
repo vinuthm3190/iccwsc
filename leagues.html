@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leagues - ICCWSC Cricket Club</title>
+    <title>CerealKillers - ARCL Cricket Team</title>
     
     <!-- CSS Files -->
     <link rel="stylesheet" href="css/style.css">
@@ -34,111 +34,297 @@
     <main>
         <section>
             <div class="container">
-                <div class="section-title">
-                    <h2>Our Leagues</h2>
-                    <p>Explore our competitive cricket leagues</p>
+                <div class="team-header">
+                    <img src="assets/images/cerealkillers-logo.jpg" alt="CerealKillers Logo" class="team-logo">
+                    <div class="team-info">
+                        <h1>CerealKillers</h1>
+                        <p>Atlanta Recreational Cricket League (ARCL) - Season 2023</p>
+                    </div>
                 </div>
-                <div class="leagues-container">
-                    <div class="league-card">
-                        <div class="league-header">
-                            <h3 class="league-name">Premier Division</h3>
-                            <span class="league-status status-active">Active</span>
+
+                <!-- Team Summary -->
+                <div class="stats-section">
+                    <h2>Team Summary</h2>
+                    <div class="match-card">
+                        <div class="match-details">
+                            <div class="match-detail-item">
+                                <h4>League Position</h4>
+                                <p>4th of 12 teams</p>
+                            </div>
+                            <div class="match-detail-item">
+                                <h4>Matches</h4>
+                                <p>14 (8 wins, 6 losses)</p>
+                            </div>
+                            <div class="match-detail-item">
+                                <h4>Team Rating</h4>
+                                <p>1850 points</p>
+                            </div>
+                            <div class="match-detail-item">
+                                <h4>Net Run Rate</h4>
+                                <p>+1.234</p>
+                            </div>
                         </div>
-                        <div class="league-info">
-                            <div class="league-info-item">
-                                <span>Season:</span>
-                                <p>April - September 2025</p>
+                    </div>
+                </div>
+
+                <!-- Batting Stats -->
+                <div class="stats-section">
+                    <h2>Batting Stats</h2>
+                    <table class="stats-table">
+                        <thead>
+                            <tr>
+                                <th>Player</th>
+                                <th>Matches</th>
+                                <th>Innings</th>
+                                <th>Runs</th>
+                                <th>Average</th>
+                                <th>Strike Rate</th>
+                                <th>Highest</th>
+                                <th>50s</th>
+                                <th>100s</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Replace with actual player data from the URL -->
+                            <tr>
+                                <td>John Smith</td>
+                                <td>14</td>
+                                <td>14</td>
+                                <td>487</td>
+                                <td>40.58</td>
+                                <td>135.27</td>
+                                <td>89</td>
+                                <td>4</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>Michael Johnson</td>
+                                <td>12</td>
+                                <td>12</td>
+                                <td>354</td>
+                                <td>32.18</td>
+                                <td>128.94</td>
+                                <td>76</td>
+                                <td>3</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>David Williams</td>
+                                <td>14</td>
+                                <td>13</td>
+                                <td>312</td>
+                                <td>28.36</td>
+                                <td>115.55</td>
+                                <td>65</td>
+                                <td>2</td>
+                                <td>0</td>
+                            </tr>
+                            <!-- Add more rows as needed -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Bowling Stats -->
+                <div class="stats-section">
+                    <h2>Bowling Stats</h2>
+                    <table class="stats-table">
+                        <thead>
+                            <tr>
+                                <th>Player</th>
+                                <th>Matches</th>
+                                <th>Overs</th>
+                                <th>Wickets</th>
+                                <th>Average</th>
+                                <th>Economy</th>
+                                <th>Best</th>
+                                <th>3W+</th>
+                                <th>5W+</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Replace with actual player data from the URL -->
+                            <tr>
+                                <td>James Brown</td>
+                                <td>14</td>
+                                <td>45.2</td>
+                                <td>23</td>
+                                <td>15.78</td>
+                                <td>6.24</td>
+                                <td>4/21</td>
+                                <td>2</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>Robert Davis</td>
+                                <td>13</td>
+                                <td>38.5</td>
+                                <td>18</td>
+                                <td>18.33</td>
+                                <td>7.12</td>
+                                <td>3/18</td>
+                                <td>1</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>Thomas Wilson</td>
+                                <td>14</td>
+                                <td>42.0</td>
+                                <td>16</td>
+                                <td>20.75</td>
+                                <td>6.88</td>
+                                <td>3/24</td>
+                                <td>1</td>
+                                <td>0</td>
+                            </tr>
+                            <!-- Add more rows as needed -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Recent Matches -->
+                <div class="stats-section">
+                    <h2>Recent Matches</h2>
+                    
+                    <!-- Match 1 -->
+                    <div class="match-card">
+                        <div class="match-header">
+                            <div class="match-teams">
+                                <span>CerealKillers</span>
+                                <span class="match-vs">vs</span>
+                                <span>Mighty Tigers</span>
                             </div>
-                            <div class="league-info-item">
-                                <span>Format:</span>
-                                <p>T20 (20 overs)</p>
-                            </div>
-                            <div class="league-info-item">
-                                <span>Match Days:</span>
-                                <p>Saturdays & Sundays</p>
-                            </div>
-                            <div class="league-info-item">
-                                <span>Teams:</span>
-                                <p>8 Teams</p>
-                            </div>
+                            <div class="match-date">June 12, 2023</div>
+                            <div class="match-result win">WIN</div>
                         </div>
-                        <p>Our highest level of competition featuring the top teams in the region. Professional umpires and livestreaming available for all matches.</p>
-                        <div class="team-list">
-                            <div class="team-item">Royal Strikers</div>
-                            <div class="team-item">Metro Mavericks</div>
-                            <div class="team-item">City Titans</div>
-                            <div class="team-item">North Warriors</div>
-                            <div class="team-item">West Wolves</div>
-                            <div class="team-item">East Eagles</div>
-                            <div class="team-item">South Sharks</div>
-                            <div class="team-item">Central Knights</div>
+                        <div class="match-details">
+                            <div class="match-detail-item">
+                                <h4>CerealKillers</h4>
+                                <p>187/5 (20 overs)</p>
+                            </div>
+                            <div class="match-detail-item">
+                                <h4>Mighty Tigers</h4>
+                                <p>154/9 (20 overs)</p>
+                            </div>
+                            <div class="match-detail-item">
+                                <h4>Top Batsman</h4>
+                                <p>John Smith (68 runs)</p>
+                            </div>
+                            <div class="match-detail-item">
+                                <h4>Top Bowler</h4>
+                                <p>James Brown (3/24)</p>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="league-card">
-                        <div class="league-header">
-                            <h3 class="league-name">Championship Division</h3>
-                            <span class="league-status status-active">Active</span>
+                    <!-- Match 2 -->
+                    <div class="match-card">
+                        <div class="match-header">
+                            <div class="match-teams">
+                                <span>Royal Strikers</span>
+                                <span class="match-vs">vs</span>
+                                <span>CerealKillers</span>
+                            </div>
+                            <div class="match-date">June 5, 2023</div>
+                            <div class="match-result loss">LOSS</div>
                         </div>
-                        <div class="league-info">
-                            <div class="league-info-item">
-                                <span>Season:</span>
-                                <p>April - September 2025</p>
+                        <div class="match-details">
+                            <div class="match-detail-item">
+                                <h4>Royal Strikers</h4>
+                                <p>176/4 (20 overs)</p>
                             </div>
-                            <div class="league-info-item">
-                                <span>Format:</span>
-                                <p>T20 & 40-over matches</p>
+                            <div class="match-detail-item">
+                                <h4>CerealKillers</h4>
+                                <p>162/8 (20 overs)</p>
                             </div>
-                            <div class="league-info-item">
-                                <span>Match Days:</span>
-                                <p>Saturdays</p>
+                            <div class="match-detail-item">
+                                <h4>Top Batsman</h4>
+                                <p>Michael Johnson (54 runs)</p>
                             </div>
-                            <div class="league-info-item">
-                                <span>Teams:</span>
-                                <p>10 Teams</p>
+                            <div class="match-detail-item">
+                                <h4>Top Bowler</h4>
+                                <p>Robert Davis (2/32)</p>
                             </div>
-                        </div>
-                        <p>Our intermediate level competition featuring teams looking to develop and progress to the Premier Division.</p>
-                        <div class="team-list">
-                            <div class="team-item">River Rapids</div>
-                            <div class="team-item">Mountain Lions</div>
-                            <div class="team-item">Valley Vikings</div>
-                            <div class="team-item">Forest Falcons</div>
-                            <div class="team-item">Lake Legends</div>
-                            <div class="team-item">Bridge Blazers</div>
-                            <div class="team-item">Park Panthers</div>
-                            <div class="team-item">Hill Hurricanes</div>
-                            <div class="team-item">Field Foxes</div>
-                            <div class="team-item">Road Runners</div>
                         </div>
                     </div>
-                    
-                    <div class="league-card">
-                        <div class="league-header">
-                            <h3 class="league-name">Youth League</h3>
-                            <span class="league-status status-upcoming">Upcoming</span>
-                        </div>
-                        <div class="league-info">
-                            <div class="league-info-item">
-                                <span>Season:</span>
-                                <p>June - August 2025</p>
-                            </div>
-                            <div class="league-info-item">
-                                <span>Format:</span>
-                                <p>Modified rules for youth</p>
-                            </div>
-                            <div class="league-info-item">
-                                <span>Match Days:</span>
-                                <p>Sunday mornings</p>
-                            </div>
-                            <div class="league-info-item">
-                                <span>Age Groups:</span>
-                                <p>U11, U13, U15, U17</p>
-                            </div>
-                        </div>
-                        <p>Our dedicated youth program focusing on player development, enjoyment, and introducing young players to competitive cricket in a supportive environment.</p>
-                        <a href="#" class="btn btn-primary" style="margin-top: 1rem;">Register a Youth Team</a>
-                    </div>
+                </div>
+
+                <!-- League Standings -->
+                <div class="stats-section">
+                    <h2>League Standings</h2>
+                    <table class="stats-table">
+                        <thead>
+                            <tr>
+                                <th>Pos</th>
+                                <th>Team</th>
+                                <th>Played</th>
+                                <th>Won</th>
+                                <th>Lost</th>
+                                <th>Tied</th>
+                                <th>Points</th>
+                                <th>NRR</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Replace with actual league standings from the URL -->
+                            <tr>
+                                <td>
+                                    <div class="standings-position position-1">1</div>
+                                </td>
+                                <td class="team-name-cell">Thunder Kings</td>
+                                <td>14</td>
+                                <td>12</td>
+                                <td>2</td>
+                                <td>0</td>
+                                <td>24</td>
+                                <td>+2.345</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="standings-position position-2">2</div>
+                                </td>
+                                <td class="team-name-cell">Royal Strikers</td>
+                                <td>14</td>
+                                <td>10</td>
+                                <td>4</td>
+                                <td>0</td>
+                                <td>20</td>
+                                <td>+1.876</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="standings-position position-3">3</div>
+                                </td>
+                                <td class="team-name-cell">Metro Mavericks</td>
+                                <td>14</td>
+                                <td>9</td>
+                                <td>5</td>
+                                <td>0</td>
+                                <td>18</td>
+                                <td>+1.564</td>
+                            </tr>
+                            <tr class="highlight-row">
+                                <td>4</td>
+                                <td class="team-name-cell">CerealKillers</td>
+                                <td>14</td>
+                                <td>8</td>
+                                <td>6</td>
+                                <td>0</td>
+                                <td>16</td>
+                                <td>+1.234</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td class="team-name-cell">City Titans</td>
+                                <td>14</td>
+                                <td>7</td>
+                                <td>7</td>
+                                <td>0</td>
+                                <td>14</td>
+                                <td>+0.876</td>
+                            </tr>
+                            <!-- Add more rows as needed -->
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </section>
