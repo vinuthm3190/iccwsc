@@ -62,7 +62,7 @@ iccwsc-website/
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/yourusername/iccwsc-website.git
+   git clone https://github.com/vinuthm3190/iccwsc-website.git
    cd iccwsc-website
    ```
 
