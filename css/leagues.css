@@ -1,0 +1,83 @@
+.leagues-container {
+    background-color: white;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.league-card {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #eee;
+}
+
+.league-card:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.league-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.league-name {
+    font-size: 1.8rem;
+    color: var(--primary);
+}
+
+.league-status {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.status-active {
+    background-color: rgba(39, 174, 96, 0.2);
+    color: var(--success);
+}
+
+.status-upcoming {
+    background-color: rgba(243, 156, 18, 0.2);
+    color: var(--accent);
+}
+
+.league-info {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.league-info-item {
+    margin-right: 2rem;
+    margin-bottom: 1rem;
+}
+
+.league-info-item span {
+    font-weight: 500;
+    color: var(--dark);
+    display: block;
+    margin-bottom: 0.3rem;
+}
+
+.league-info-item p {
+    color: #777;
+}
+
+.team-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.team-item {
+    background-color: #f8f9fa;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-weight: 500;
+}
