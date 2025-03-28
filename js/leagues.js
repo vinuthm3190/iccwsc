@@ -4,13 +4,13 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Firebase configuration - REPLACE WITH YOUR CONFIG
     const firebaseConfig = {
-        apiKey: "YOUR_API_KEY",
-        authDomain: "your-project-id.firebaseapp.com",
-        projectId: "your-project-id",
-        storageBucket: "your-project-id.appspot.com",
-        messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-        appId: "YOUR_APP_ID"
-    };
+        apiKey: "AIzaSyAKpu8ZOspBdgvT0OuMQ3UjPOQFJNb30Qg",
+        authDomain: "iccwsc.firebaseapp.com",
+        projectId: "iccwsc",
+        storageBucket: "iccwsc.firebasestorage.app",
+        messagingSenderId: "493299224859",
+        appId: "1:493299224859:web:c28433ada539187b3a03be"
+      };
     
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
