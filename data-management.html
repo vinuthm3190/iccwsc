@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Management - ICCWSC Cricket Club</title>
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/data-management.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <span>ICCWSC</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="leagues.html">Leagues</a></li>
+                    <li><a href="availability.html">Availability</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="data-management.html" class="active">Data Management</a></li>
+                </ul>
+                <button class="menu-btn">☰</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <div class="container">
+                <div class="section-title">
+                    <h2>Match Data Management</h2>
+                    <p>Manage umpiring assignments and match schedules</p>
+                </div>
+                
+                <!-- Loading Spinner (Initially Visible) -->
+                <div id="loading-spinner" class="loading-spinner">
+                    <div class="spinner"></div>
+                </div>
+                
+                <!-- Authentication Status -->
+                <div id="auth-status-container" class="data-card" style="display: none;">
+                    <div class="auth-status">
+                        <div id="auth-indicator" class="auth-indicator logged-out"></div>
+                        <div id="auth-text" class="auth-text logged-out">Not logged in</div>
+                        <div id="auth-action" class="auth-action">Login</div>
+                    </div>
+                </div>
+                
+                <!-- Login Form (Initially Hidden) -->
+                <div id="login-container" class="login-container" style="display: none;">
+                    <div class="login-header">
+                        <h2>Admin Login</h2>
+                        <p>Enter your credentials to manage match data</p>
+                    </div>
+                    <form id="login-form" class="login-form">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" class="form-control" required>
+                        </div>
+                        <button type="submit" class="login-btn">Login</button>
+                    </form>
+                </div>
+                
+                <!-- Data Management Tabs (Initially Hidden) -->
+                <div id="data-tabs-container" class="tabs-container" style="display: none;">
+                    <div class="tabs">
+                        <div class="tab active" data-tab="umpiring">Umpiring Assignments</div>
+                        <div class="tab" data-tab="games">Games</div>
+                    </div>
+                    
+                    <!-- Umpiring Assignments Tab -->
+                    <div id="umpiring-tab" class="tab-content active">
+                        <div class="data-card">
+                            <div class="table-controls">
+                                <div class="search-box">
+                                    <input type="text" id="umpiring-search" placeholder="Search umpiring assignments...">
+                                </div>
+                                <button id="add-umpiring-btn" class="btn-control btn-add">+ Add Assignment</button>
+                            </div>
+                            
+                            <div class="table-responsive">
+                                <table id="umpiring-table" class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Time</th>
+                                            <th>Ground</th>
+                                            <th>Team 1</th>
+                                            <th>Team 2</th>
+                                            <th>Umpire</th>
+                                            <th>Player</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Data will be populated by JavaScript -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Games Tab -->
+                    <div id="games-tab" class="tab-content">
+                        <div class="data-card">
+                            <div class="table-controls">
+                                <div class="search-box">
+                                    <input type="text" id="games-search" placeholder="Search games...">
+                                </div>
+                                <button id="add-game-btn" class="btn-control btn-add">+ Add Game</button>
+                            </div>
+                            
+                            <div class="table-responsive">
+                                <table id="games-table" class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Team</th>
+                                            <th>Opposition</th>
+                                            <th>Match Type</th>
+                                            <th>Match Date</th>
+                                            <th>Match Time</th>
+                                            <th>Umpire</th>
+                                            <th>Ground</th>
+                                            <th>Result</th>
+                                            <th>Points</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Data will be populated by JavaScript -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Umpiring Assignment Modal -->
+    <div id="umpiring-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="umpiring-modal-title">Add Umpiring Assignment</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <form id="umpiring-form">
+                <input type="hidden" id="umpiring-id">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="umpiring-date">Date</label>
+                        <input type="date" id="umpiring-date" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="umpiring-time">Time</label>
+                        <input type="time" id="umpiring-time" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="umpiring-ground">Ground</label>
+                        <input type="text" id="umpiring-ground" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="umpiring-team1">Team 1</label>
+                        <input type="text" id="umpiring-team1" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="umpiring-team2">Team 2</label>
+                        <input type="text" id="umpiring-team2" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="umpiring-umpire">Umpire</label>
+                        <input type="text" id="umpiring-umpire" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="umpiring-player">Player</label>
+                        <input type="text" id="umpiring-player" class="form-control" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-control btn-cancel" id="umpiring-cancel">Cancel</button>
+                    <button type="submit" class="btn-control btn-save">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Game Modal -->
+    <div id="game-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="game-modal-title">Add Game</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <form id="game-form">
+                <input type="hidden" id="game-id">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="game-team">Team</label>
+                        <input type="text" id="game-team" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="game-opposition">Opposition</label>
+                        <input type="text" id="game-opposition" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="game-type">Match Type</label>
+                        <select id="game-type" class="form-control" required>
+                            <option value="League">League</option>
+                            <option value="Friendly">Friendly</option>
+                            <option value="Tournament">Tournament</option>
+                            <option value="Knockout">Knockout</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="game-date">Match Date</label>
+                        <input type="date" id="game-date" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="game-time">Match Time</label>
+                        <input type="time" id="game-time" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="game-umpire">Umpire</label>
+                        <input type="text" id="game-umpire" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="game-ground">Ground</label>
+                        <input type="text" id="game-ground" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="game-result">Result</label>
+                        <input type="text" id="game-result" class="form-control">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="game-points">Points</label>
+                        <input type="number" id="game-points" class="form-control" min="0">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-control btn-cancel" id="game-cancel">Cancel</button>
+                    <button type="submit" class="btn-control btn-save">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirm-modal" class="modal">
+        <div class="modal-content" style="max-width: 400px;">
+            <div class="modal-header">
+                <h3>Confirm Delete</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <p>Are you sure you want to delete this item? This action cannot be undone.</p>
+            <div class="modal-footer">
+                <button type="button" class="btn-control btn-cancel" id="confirm-cancel">Cancel</button>
+                <button type="button" class="btn-control btn-delete" id="confirm-delete">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-item">
+                    <h3>About ICCWSC</h3>
+                    <p>The International Cricket Club (ICCWSC) is a leading cricket organization dedicated to promoting and developing cricket at all levels.</p>
+                    <p>Founded in 2005, we have grown into one of the region's most respected cricket clubs.</p>
+                </div>
+                <div class="footer-item">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="leagues.html">Leagues</a></li>
+                        <li><a href="availability.html">Availability</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#">News & Events</a></li>
+                        <li><a href="#">Gallery</a></li>
+                    </ul>
+                </div>
+                <div class="footer-item">
+                    <h3>Our Programs</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Junior Cricket Academy</a></li>
+                        <li><a href="#">Women's Cricket</a></li>
+                        <li><a href="#">Professional Training</a></li>
+                        <li><a href="#">Community Outreach</a></li>
+                        <li><a href="#">Corporate Cricket Events</a></li>
+                    </ul>
+                </div>
+                <div class="footer-item">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter for the latest updates and news about our club and events.</p>
+                    <form class="newsletter-form">
+                        <input type="email" class="form-control" placeholder="Your email" required>
+                        <button type="submit" class="form-btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year">2025</span> ICCWSC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/data-mamangement.js"></script>
+</body>
+</html>

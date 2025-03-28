@@ -621,7 +621,7 @@
     min-width: 220px;
     background-color: #f8f9fa;
     border-radius: 8px;
-    padding: 1rem;
+    padding: 1.5rem;
     text-align: center;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -637,15 +637,6 @@
 .team-card.active {
     border-color: var(--primary);
     background-color: rgba(46, 134, 193, 0.1);
-}
-
-.team-card img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 1rem;
-    border: 2px solid var(--primary);
 }
 
 .team-card h3 {
@@ -681,28 +672,22 @@
 
 /* Stats styles */
 .team-header {
-    display: flex;
-    align-items: center;
+    background-color: var(--primary);
+    color: white;
+    padding: 2rem;
+    border-radius: 10px;
     margin-bottom: 2rem;
-    gap: 1.5rem;
-}
-
-.team-logo {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid var(--primary);
+    text-align: center;
 }
 
 .team-info h1 {
-    color: var(--primary);
+    font-size: 2rem;
     margin-bottom: 0.5rem;
 }
 
 .team-info p {
-    color: #777;
     font-size: 1.1rem;
+    opacity: 0.9;
 }
 
 .stats-section {
@@ -904,9 +889,5 @@
     }
     .team-card {
         min-width: 100%;
-    }
-    .team-header {
-        flex-direction: column;
-        text-align: center;
     }
 }
