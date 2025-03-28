@@ -1,5 +1,7 @@
+// Navigation functionality
+
 document.addEventListener('DOMContentLoaded', function() {
-    // Mobile Menu Toggle
+    // Mobile menu toggle
     const menuBtn = document.querySelector('.menu-btn');
     const navLinks = document.querySelector('.nav-links');
     
@@ -9,16 +11,21 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Set active navigation link based on current page
-    const currentPage = window.location.pathname.split('/').pop();
+    // Close mobile menu when clicking anywhere else on the page
+    document.addEventListener('click', function(event) {
+        if (navLinks && navLinks.classList.contains('active') && !event.target.closest('.nav-links') && event.target !== menuBtn) {
+            navLinks.classList.remove('active');
+        }
+    });
     
+    // Highlight current page in navigation
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     const navItems = document.querySelectorAll('.nav-links a');
+    
     navItems.forEach(item => {
         const href = item.getAttribute('href');
-        if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+        if (href === currentPage) {
             item.classList.add('active');
-        } else {
-            item.classList.remove('active');
         }
     });
 });

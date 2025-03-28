@@ -1,8 +1,10 @@
+// Main JavaScript file for common functionality
+
 document.addEventListener('DOMContentLoaded', function() {
-    // Set current year in footer copyright
+    // Set current year in footer
     document.getElementById('current-year').textContent = new Date().getFullYear();
     
-    // Initialize newsletter form submission
+    // Handle newsletter form
     const newsletterForm = document.querySelector('.newsletter-form');
     if (newsletterForm) {
         newsletterForm.addEventListener('submit', function(e) {

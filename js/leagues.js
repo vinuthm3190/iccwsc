@@ -1,21 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Set current year in footer
-    document.getElementById('current-year').textContent = new Date().getFullYear();
-    
-    // Firebase configuration - REPLACE WITH YOUR CONFIG
-    const firebaseConfig = {
-        apiKey: "AIzaSyAKpu8ZOspBdgvT0OuMQ3UjPOQFJNb30Qg",
-        authDomain: "iccwsc.firebaseapp.com",
-        projectId: "iccwsc",
-        storageBucket: "iccwsc.firebasestorage.app",
-        messagingSenderId: "493299224859",
-        appId: "1:493299224859:web:c28433ada539187b3a03be"
-      };
-    
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    const db = firebase.firestore();
-    
     // DOM Elements
     const loadingSpinner = document.getElementById('loading-spinner');
     const contentContainer = document.getElementById('content-container');
@@ -138,8 +121,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 wins: 8,
                 losses: 6,
                 points: 16,
-                netRunRate: '+1.234',
-                logoUrl: 'assets/images/cereal-killers.jpg'
+                netRunRate: '+1.234'
             },
             {
                 name: 'Royal Strikers',
@@ -149,8 +131,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 wins: 10,
                 losses: 4,
                 points: 20,
-                netRunRate: '+1.876',
-                logoUrl: 'assets/images/royal-strikers.jpg'
+                netRunRate: '+1.876'
             },
             {
                 name: 'Thunder Kings',
@@ -160,8 +141,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 wins: 12,
                 losses: 2,
                 points: 24,
-                netRunRate: '+2.345',
-                logoUrl: 'assets/images/thunder-kings.jpg'
+                netRunRate: '+2.345'
             },
             {
                 name: 'Phoenix Flames',
@@ -171,8 +151,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 wins: 7,
                 losses: 5,
                 points: 14,
-                netRunRate: '+0.954',
-                logoUrl: 'assets/images/phoenix-flames.jpg'
+                netRunRate: '+0.954'
             },
             {
                 name: 'Tigers XI',
@@ -182,8 +161,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 wins: 5,
                 losses: 7,
                 points: 10,
-                netRunRate: '+0.325',
-                logoUrl: 'assets/images/tigers-xi.jpg'
+                netRunRate: '+0.325'
             },
             {
                 name: 'Super Kings',
@@ -193,8 +171,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 wins: 4,
                 losses: 8,
                 points: 8,
-                netRunRate: '-0.125',
-                logoUrl: 'assets/images/super-kings.jpg'
+                netRunRate: '-0.125'
             }
         ];
         
@@ -296,7 +273,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 teamCard.dataset.teamId = team.id;
                 
                 teamCard.innerHTML = `
-                    <img src="${team.logoUrl}" alt="${team.name} Logo" onerror="this.src='assets/images/team-placeholder.jpg'">
                     <h3>${team.name}</h3>
                     <p>Position: ${team.position}${getPositionSuffix(team.position)}</p>
                 `;
@@ -422,7 +398,6 @@ document.addEventListener('DOMContentLoaded', function() {
             // Render team content
             teamContent.innerHTML = `
                 <div class="team-header">
-                    <img src="${team.logoUrl}" alt="${team.name} Logo" class="team-logo" onerror="this.src='assets/images/team-placeholder.jpg'">
                     <div class="team-info">
                         <h1>${team.name}</h1>
                         <p>${league.fullName} (${league.season})</p>
