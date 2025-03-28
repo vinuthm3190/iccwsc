@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Firebase Test</title>
+</head>
+<body>
+    <h1>Firebase Connection Test</h1>
+    <div id="result">Testing connection...</div>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
+    
+    <script>
+        // Your Firebase configuration - REPLACE WITH YOUR ACTUAL CONFIG
+        const firebaseConfig = {
+        apiKey: "AIzaSyAKpu8ZOspBdgvT0OuMQ3UjPOQFJNb30Qg",
+        authDomain: "iccwsc.firebaseapp.com",
+        projectId: "iccwsc",
+        storageBucket: "iccwsc.firebasestorage.app",
+        messagingSenderId: "493299224859",
+        appId: "1:493299224859:web:c28433ada539187b3a03be"
+      };
+        
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+        
+        // Test connection
+        db.collection('test').get()
+            .then(snapshot => {
+                document.getElementById('result').textContent = 'Connection successful!';
+                console.log('Connection successful!');
+            })
+            .catch(error => {
+                document.getElementById('result').textContent = 'Error: ' + error.message;
+                console.error('Error details:', error);
+            });
+    </script>
+</body>
+</html>
